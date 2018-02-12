@@ -1,2 +1,5 @@
 *.zip
 *.tsv
+*.py[co]
+*.jpg
+*.jpeg
