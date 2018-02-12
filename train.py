@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Created on Mon Apr 17 11:50:58 2017
@@ -17,6 +18,7 @@ from sklearn.neural_network import MLPClassifier
 PATH_TO_TRAIN_IMAGES = os.path.join('data', 'processed', 'train_images')
 PATH_TO_TRAIN_DATA = os.path.join('data', 'given', 'train_master.tsv')
 PATH_TO_MODEL = os.path.join('models', 'mlp')
+
 
 def load_train_data(path_to_train_images, path_to_train_data):
     print('loading train data ...')
@@ -41,25 +43,28 @@ def load_train_data(path_to_train_images, path_to_train_data):
     print('done.')
     return X, y
 
+
 def train_model(X, y):
     print('training the model ...')
-    model = MLPClassifier() # or you can instanciate your own model(MYModel)
+    model = MLPClassifier()  # or you can instanciate your own model(MYModel)
     model.fit(X, y)
     print('done.')
     return model
 
+
 def save_model(model, name):
     print('saving the model ...')
-    with open(name+'.pkl', mode='wb') as f:
+    with open(name + '.pkl', mode='wb') as f:
         pickle.dump(model, f)
     print('done.')
 
+
 if __name__ == '__main__':
-    ## load the data for training
+    # load the data for training
     X, y = load_train_data(PATH_TO_TRAIN_IMAGES, PATH_TO_TRAIN_DATA)
-    
-    ## instanciate and train the model
+
+    # instanciate and train the model
     model = train_model(X, y)
 
-    ## save the trained model
+    # save the trained model
     save_model(model, PATH_TO_MODEL)
