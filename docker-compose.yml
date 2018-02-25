@@ -1,12 +1,27 @@
 version: '2'
 
+volumes: 
+    db_data:
+
 
 services:
-    app:
-        build: 
-            context: .
-            dockerfile: Dockerfile
+  db:
+    image: postgres:9.6
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=cookpad
+      - POSTGRES_USER=cookpad
+      - POSTGRES_DB=cookpad
+  airflow:
+      build: 
+          context: ./airflow
+      volumes:
+       - ./airflow:/srv
+      ports:
+        - "8080:8080"
 
-        volumes:
-            - ./:/srv
+      command: airflow webserver
+      depends_on:
+          - db
 
