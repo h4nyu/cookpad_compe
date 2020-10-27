@@ -5,8 +5,7 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 alembic==0.8.10           # via apache-airflow
-apache-airflow[crypto,postgres]==1.9.0
-asn1crypto==0.24.0        # via cryptography
+apache-airflow[crypto,postgres]==1.9.0  # via -r requirements.in
 bleach==2.1.2             # via apache-airflow
 certifi==2018.1.18        # via requests
 cffi==1.11.4              # via cryptography
@@ -14,7 +13,7 @@ chardet==3.0.4            # via requests
 click==6.7                # via flask
 configparser==3.5.0       # via apache-airflow
 croniter==0.3.20          # via apache-airflow
-cryptography==2.1.4       # via apache-airflow
+cryptography==3.2         # via apache-airflow
 dill==0.2.7.1             # via apache-airflow
 docutils==0.14            # via python-daemon
 enum34==1.1.6             # via cryptography
@@ -30,7 +29,7 @@ gitdb2==2.0.3             # via gitpython
 gitpython==2.1.8          # via apache-airflow
 gunicorn==19.7.1          # via apache-airflow
 html5lib==1.0.1           # via bleach
-idna==2.6                 # via cryptography, requests
+idna==2.6                 # via requests
 ipaddress==1.0.19         # via cryptography
 itsdangerous==0.24        # via flask
 jinja2==2.8.1             # via apache-airflow, flask, python-nvd3
